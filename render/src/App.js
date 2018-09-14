@@ -4,7 +4,7 @@ const App = () => {
     osat: [
       {
         nimi: 'Reacticccn perusteet',
-        tehtavia: 10,
+         tehtavia: 10,
         id: 1
       },
       {
@@ -16,7 +16,12 @@ const App = () => {
         nimi: 'Komponenttien tila',
         tehtavia: 14,
         id: 3
-      }
+      },
+      {
+        nimi: 'LUAn arkitehtuuri testi testi',
+        tehtavia: 22,
+        id: 4
+      },
     ]
   }
 

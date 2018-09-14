@@ -25,7 +25,7 @@ const Yhteensa = (props) => {
 
 const App = () => {
 
-  console.log('testi jee')
+  // console.log('testi jee')
   const kurssi = {
     nimi: 'Half Stack -sovelluskehitys',
     osat: [
