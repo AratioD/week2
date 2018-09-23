@@ -25,54 +25,83 @@ const Yhteensa = (props) => {
 
 const App = () => {
 
-  // console.log('testi jee')
-  const kurssi = {
-    nimi: 'Half Stack -sovelluskehitys',
-    osat: [
-      {
-        nimi: 'Reactin perusteet',
-        tehtavia: 10,
-        id: 1
-      },
-      {
-        nimi: 'Tiedonvälitys propseilla',
-        tehtavia: 7,
-        id: 2
-      },
-      {
-        nimi: 'Komponenttien tila',
-        tehtavia: 14,
-        id: 3
-      },
-      {
-        nimi: 'LUAn arkitehtuuri',
-        tehtavia: 22,
-        id: 4
-      },
+  const kurssi = [
+    {
+      nimi: 'Half Stack -sovelluskehitys',
+      id: 1,
+      osat: [
+        {
+          nimi: 'Reactin perusteet',
+          tehtavia: 10,
+          id: 1
+        },
+        {
+          nimi: 'Tiedonvälitys propseilla',
+          tehtavia: 7,
+          id: 2
+        },
+        {
+          nimi: 'Komponenttien tila',
+          tehtavia: 14,
+          id: 3
+        }
+      ]
+    },
+    {
+      nimi: 'Node.js',
+      id: 2,
+      osat: [
+        {
+          nimi: 'Routing',
+          tehtavia: 3,
+          id: 1
+        },
+        {
+          nimi: 'Middlewaret',
+          tehtavia: 7,
+          id: 2
+        },
+        {
+          nimi: 'LUA',
+          tehtavia: 111,
+          id: 3
+        },
+      ]
+    },
+    {
+      nimi: 'BASIC UNDERSTANDING OF CODING',
+      id: 3,
+      osat: [
+        {
+          nimi: 'Naming Convention',
+          tehtavia: 10,
+          id: 1
+        },
+        {
+          nimi: 'Say it once',
+          tehtavia: 7,
+          id: 2
+        },
+        {
+          nimi: 'Game of thrones',
+          tehtavia: 14,
+          id: 3
+        }
+      ]
+    },
+  ]
 
-    ]
-  }
 
-  // const kurssi = [
-  //   {
-  //     id: 1,
-  //     content: 'HTML on helppoa',
-  //     date: '2017-12-10T17:30:31.098Z',
-  //     important: true
-  //   },
-  //   {
-  //     id: 2,
-  //     content: 'Selain pystyy suorittamaan vain javascriptiä',
-  //     date: '2017-12-10T18:39:34.091Z',
-  //     important: false
-  //   },
-  //   {
-  //     id: 3,
-  //     content: 'HTTP-protokollan tärkeimmät metodit ovat GET ja POST',
-  //     date: '2017-12-10T19:20:14.298Z',
-  //     important: true
-  //   }
-  // ]
+
+
+
+
+
+
+
+
+
+
 
   console.log('teststset')
   return (
