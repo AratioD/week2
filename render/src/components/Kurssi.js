@@ -1,13 +1,12 @@
 import React from 'react'
 
-const Kurssi = ({ kurssi }) => {
-
-  const mainTopic = "Opetusohjelma"
+const Kurssi = ({ kurssi, maintopic }) => {
+  //console.log('maintopic value', maintopic)
 
   return (
     <div>
       <ul>
-        <MainTopic mainTopic={mainTopic} />
+        <MainTopic mainTopic={maintopic} />
         <CourseContent courseContent={kurssi} />
       </ul>
     </div>
@@ -15,7 +14,7 @@ const Kurssi = ({ kurssi }) => {
 }
 
 const MainTopic = (props) => {
-  console.log('testi toimiiko')
+  //console.log('Maintopic component works')
   return (
     <div>
       <ul>
