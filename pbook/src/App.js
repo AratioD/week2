@@ -5,16 +5,27 @@ class App extends React.Component {
     super(props)
     this.state = {
       persons: [
+        { name: 'Arto Hellas', number: '040-123456', id: 1 },
+        { name: 'Martti Tienari', number: '040-123456', id: 2 },
+        { name: 'Arto Järvinen', number: '040-123456', id: 3 },
+        { name: 'Lea Kutvonen', number: '040-123456', id:4 }
       ],
-      newName: ''
+      newName: '',
+      newNumber:'',
     }
-    console.log('testi testi')
+    // console.log('testi testi')
   }
 
-  handleNoteChange = (event) => {
+  handleNameChange = (event) => {
     console.log(event.target.value)
     this.setState({ newName: event.target.value })
-    // console.log('newName arvo', newName)
+    //  console.log('newName arvo', newName)
+  }
+
+  handleNumberChange = (event) => {
+    console.log(event.target.value)
+    this.setState({ newNumber: event.target.value })
+    // console.log('newNumber arvo', newNumber)
   }
 
 
@@ -23,37 +34,23 @@ class App extends React.Component {
 
     const noteObject = {
       name: this.state.newName,
+      number: this.state.newNumber,
       id: this.state.persons.length + 1
     }
 
     const notes = this.state.persons.concat(noteObject)
-
-    console.log('notes', notes)
-
-    console.log('noteobject', noteObject.name)
-
-    var pos = notes.length
-
-    console.log('positio', pos)
-
     const result = notes.find(fruit => fruit.name === noteObject.name);
-    console.log('result', result)
-
-    console.log('result id', result.id)
-    console.log('notes.leght', notes.length)
 
     if (result.id < notes.length) {
       window.alert("value is used");
     } else {
       this.setState({
         persons: notes,
-        newName: ''
+        newName: '',
+        newNumber: ''
       })
 
     }
-
-
-
   }
 
   render() {
@@ -63,20 +60,24 @@ class App extends React.Component {
       <div>
         <h2>Puhelinluettelo</h2>
         <form onSubmit={this.addNote}>
-          <input
-            value={this.state.newName}
-            onChange={this.handleNoteChange}
-          />
-          <button type="submit">tallenna</button>
+          <div>
+            nimi: <input
+              value={this.state.newName}
+              onChange={this.handleNameChange}
+            />
+          </div>
+          <div>
+            numero: <input
+              value={this.state.newNumber}
+              onChange={this.handleNumberChange}
+            />
+            </div>
+            <button type="submit">lisää</button>
         </form>
-
         <div>
           <h2> Numerot: </h2>
           {this.state.persons.map(name =>
-            <ul key={name.id}>{name.name} </ul>)}
-        </div>
-        <div>
-          {/* debug: {this.state.newName} */}
+            <ul key={name.id}>{name.name} {name.number}</ul>)}
         </div>
       </div>
     )
