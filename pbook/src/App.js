@@ -1,4 +1,8 @@
 import React from 'react';
+import AddNamesAndNumbers from './components/AddNamesAndNumbers'
+//DOCUMENTED OUT BECAUSE SAME FUNCTIONALITY UNITED IN SearchPhoneBook
+import PrintNamesAndNumbers from './components/PrintNamesAndNumbers'
+import SearchPhoneBook from './components/SearchPhoneBook'
 
 class App extends React.Component {
   constructor(props) {
@@ -8,26 +12,28 @@ class App extends React.Component {
         { name: 'Arto Hellas', number: '040-123456', id: 1 },
         { name: 'Martti Tienari', number: '040-123456', id: 2 },
         { name: 'Arto Järvinen', number: '040-123456', id: 3 },
-        { name: 'Lea Kutvonen', number: '040-123456', id:4 }
+        { name: 'Lea Kutvonen', number: '040-123456', id: 4 }
       ],
       newName: '',
-      newNumber:'',
+      newNumber: '',
+      findValue: ''
     }
-    // console.log('testi testi')
   }
 
   handleNameChange = (event) => {
     console.log(event.target.value)
     this.setState({ newName: event.target.value })
-    //  console.log('newName arvo', newName)
   }
 
   handleNumberChange = (event) => {
     console.log(event.target.value)
     this.setState({ newNumber: event.target.value })
-    // console.log('newNumber arvo', newNumber)
   }
 
+  handleFindChange = (event) => {
+    console.log(event.target.value)
+    this.setState({ findValue: event.target.value })
+  }
 
   addNote = (event) => {
     event.preventDefault()
@@ -35,7 +41,7 @@ class App extends React.Component {
     const noteObject = {
       name: this.state.newName,
       number: this.state.newNumber,
-      id: this.state.persons.length + 1
+      id: this.state.persons.length + 1,
     }
 
     const notes = this.state.persons.concat(noteObject)
@@ -47,38 +53,39 @@ class App extends React.Component {
       this.setState({
         persons: notes,
         newName: '',
-        newNumber: ''
+        newNumber: '',
       })
-
     }
   }
 
   render() {
-    console.log('render', this.state.persons)
-
     return (
       <div>
         <h2>Puhelinluettelo</h2>
-        <form onSubmit={this.addNote}>
-          <div>
-            nimi: <input
-              value={this.state.newName}
-              onChange={this.handleNameChange}
-            />
-          </div>
-          <div>
-            numero: <input
-              value={this.state.newNumber}
-              onChange={this.handleNumberChange}
-            />
-            </div>
-            <button type="submit">lisää</button>
-        </form>
-        <div>
-          <h2> Numerot: </h2>
-          {this.state.persons.map(name =>
-            <ul key={name.id}>{name.name} {name.number}</ul>)}
-        </div>
+        <SearchPhoneBook
+          addNote={this.addNote}
+          handleFindSearch={this.handleFindChange}
+          //THIS.STATE --> VARIABLES
+          persons={this.state.persons}
+          findValue={this.state.findValue}
+        />
+        <h2>Lisää uusi</h2>
+        <AddNamesAndNumbers
+          addNote={this.addNote}
+          handleNumberChange={this.handleNumberChange}
+          handleNameChange={this.handleNameChange}
+          //THIS.STATE --> VARIABLES
+          newNumber={this.state.newNumber}
+          newName={this.state.newName} />
+        <h2>Numerot</h2>
+        <PrintNamesAndNumbers
+          addNote={this.addNote}
+          handleFindSearch={this.handleFindChange}
+          //THIS.STATE --> VARIABLES
+          persons={this.state.persons}
+          findValue={this.state.findValue}
+        />
+
       </div>
     )
   }
