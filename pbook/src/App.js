@@ -63,10 +63,7 @@ class App extends React.Component {
       <div>
         <h2>Puhelinluettelo</h2>
         <SearchPhoneBook
-          addNote={this.addNote}
           handleFindSearch={this.handleFindChange}
-          //THIS.STATE --> VARIABLES
-          persons={this.state.persons}
           findValue={this.state.findValue}
         />
         <h2>Lisää uusi</h2>
@@ -79,9 +76,6 @@ class App extends React.Component {
           newName={this.state.newName} />
         <h2>Numerot</h2>
         <PrintNamesAndNumbers
-          addNote={this.addNote}
-          handleFindSearch={this.handleFindChange}
-          //THIS.STATE --> VARIABLES
           persons={this.state.persons}
           findValue={this.state.findValue}
         />

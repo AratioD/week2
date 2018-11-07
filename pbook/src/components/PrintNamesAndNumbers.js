@@ -1,7 +1,6 @@
 import React from 'react'
 
-const PrintNamesAndNumbers = ({ addNote,
-    handleFindSearch,
+const PrintNamesAndNumbers = ({
     persons,
     findValue }) => {
 
@@ -20,21 +19,22 @@ const PrintNamesAndNumbers = ({ addNote,
         return 0;
     });
 
+
+
     function filterItems(query) {
         return personsCopy.filter(function (el) {
             return el.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
         })
     }
-
     const personCopySorted = filterItems(findValue)
 
+
+
     return (
-        <form onSubmit={addNote}>
-            <div>
-                {personCopySorted.map(name =>
-                    <ul key={name.id}>{name.name} {name.number}</ul>)}
-            </div>
-        </form>
+        <div>
+            {personCopySorted.map(name =>
+                <ul key={name.id}>{name.name} {name.number}</ul>)}
+        </div>
     )
 }
 export default PrintNamesAndNumbers
