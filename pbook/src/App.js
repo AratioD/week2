@@ -1,6 +1,5 @@
 import React from 'react';
 import AddNamesAndNumbers from './components/AddNamesAndNumbers'
-//DOCUMENTED OUT BECAUSE SAME FUNCTIONALITY UNITED IN SearchPhoneBook
 import PrintNamesAndNumbers from './components/PrintNamesAndNumbers'
 import SearchPhoneBook from './components/SearchPhoneBook'
 
