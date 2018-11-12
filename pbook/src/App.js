@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'
 import AddNamesAndNumbers from './components/AddNamesAndNumbers'
 import PrintNamesAndNumbers from './components/PrintNamesAndNumbers'
 import SearchPhoneBook from './components/SearchPhoneBook'
@@ -8,15 +9,26 @@ class App extends React.Component {
     super(props)
     this.state = {
       persons: [
-        { name: 'Arto Hellas', number: '040-123456', id: 1 },
-        { name: 'Martti Tienari', number: '040-123456', id: 2 },
-        { name: 'Arto Järvinen', number: '040-123456', id: 3 },
-        { name: 'Lea Kutvonen', number: '040-123456', id: 4 }
+        // { name: 'Arto Hellas', number: '040-123456', id: 1 },
+        // { name: 'Martti Tienari', number: '040-123456', id: 2 },
+        // { name: 'Arto Järvinen', number: '040-123456', id: 3 },
+        // { name: 'Lea Kutvonen', number: '040-123456', id: 4 }
       ],
       newName: '',
       newNumber: '',
       findValue: ''
     }
+    console.log('constructor')
+  }
+
+  componentDidMount() {
+    console.log('did mount')
+    axios
+      .get('http://localhost:3001/persons')
+      .then(response => {
+        console.log('promise fulfilled')
+        this.setState({ persons: response.data })
+      })
   }
 
   handleNameChange = (event) => {
@@ -37,6 +49,7 @@ class App extends React.Component {
   addNote = (event) => {
     event.preventDefault()
 
+    console.log("listan pituus", this.state.persons.length)
     const noteObject = {
       name: this.state.newName,
       number: this.state.newNumber,
@@ -58,6 +71,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('render')
     return (
       <div>
         <h2>Puhelinluettelo</h2>
@@ -78,7 +92,6 @@ class App extends React.Component {
           persons={this.state.persons}
           findValue={this.state.findValue}
         />
-
       </div>
     )
   }
