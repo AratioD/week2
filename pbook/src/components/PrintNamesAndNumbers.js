@@ -1,10 +1,11 @@
 import React from 'react'
 
 const PrintNamesAndNumbers = ({
-    persons,
-    findValue }) => {
+    combPersons,
+    combFindValue }) => {
 
-    const personsCopy = [].concat(persons)
+    const personsCopy = [].concat(combPersons)
+
 
     personsCopy.sort(function (a, b) {
         var nameA = a.name.toUpperCase();
@@ -26,9 +27,10 @@ const PrintNamesAndNumbers = ({
             return el.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
         })
     }
-    const personCopySorted = filterItems(findValue)
+    const personCopySorted = filterItems(combFindValue)
 
-
+    // console.log('personscopy', personCopySorted)
+    // console.log('person', persons)
 
     return (
         <div>

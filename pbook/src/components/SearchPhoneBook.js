@@ -1,11 +1,11 @@
 import React from 'react'
 
-const SearchPhoneBook = ({handleFindSearch, findValue 
+const SearchPhoneBook = ({handleFindSearch, compFindValue 
 }) => {
 
     return (
         <label>
-            rajaa näytettäviä: <input type="text" value={findValue} onChange={handleFindSearch} />
+            rajaa näytettäviä: <input type="text" value={compFindValue} onChange={handleFindSearch} />
         </label>
     )
 }

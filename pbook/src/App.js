@@ -68,6 +68,9 @@ class App extends React.Component {
         newNumber: '',
       })
     }
+
+    console.log('notesApp', notes)
+    console.log('')
   }
 
   render() {
@@ -77,20 +80,20 @@ class App extends React.Component {
         <h2>Puhelinluettelo</h2>
         <SearchPhoneBook
           handleFindSearch={this.handleFindChange}
-          findValue={this.state.findValue}
+          compfindValue={this.state.findValue}
         />
         <h2>Lisää uusi</h2>
         <AddNamesAndNumbers
-          addNote={this.addNote}
+          compAddNote={this.addNote}
           handleNumberChange={this.handleNumberChange}
           handleNameChange={this.handleNameChange}
           //THIS.STATE --> VARIABLES
-          newNumber={this.state.newNumber}
-          newName={this.state.newName} />
+          combNewNumber={this.state.newNumber}
+          combNewName={this.state.newName} />
         <h2>Numerot</h2>
         <PrintNamesAndNumbers
-          persons={this.state.persons}
-          findValue={this.state.findValue}
+          combPersons={this.state.persons}
+          combFindValue={this.state.findValue}
         />
       </div>
     )

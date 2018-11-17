@@ -1,14 +1,14 @@
 import React from 'react'
 
-const AddNamesAndNumbers = ({ addNote, handleNumberChange,
-    handleNameChange, newNumber, newName }) =>
+const AddNamesAndNumbers = ({ compAddNote, handleNumberChange,
+    handleNameChange, combNewNumber, combNewName }) =>
     (<div>
-        <form onSubmit={addNote}>
+        <form onSubmit={compAddNote}>
             <div>
-                nimi: <input value={newName} onChange={handleNameChange} />
+                nimi: <input value={combNewName} onChange={handleNameChange} />
             </div>
             <div>
-                numero: <input value={newNumber} onChange={handleNumberChange} />
+                numero: <input value={combNewNumber} onChange={handleNumberChange} />
             </div>
             <button type="submit">Add</button>
         </form>
