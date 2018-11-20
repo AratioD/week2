@@ -5,7 +5,7 @@ const SearchPhoneBook = ({handleFindSearch, compFindValue
 
     return (
         <label>
-            find countries: <input type="text" value={compFindValue} onChange={handleFindSearch} />
+            rajaa näytettäviä: <input type="text" value={compFindValue} onChange={handleFindSearch} />
         </label>
     )
 }
