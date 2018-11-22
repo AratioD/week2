@@ -29,20 +29,41 @@ const PrintCountries = ({
     }
     const countryCopySorted = filterItems(combFindValue)
 
-    // console.log('personscopy', personCopySorted)
+    console.log('flag amount', countryCopySorted.length)
     // console.log('person', persons)
 
-    return (
-        <div>
-            {countryCopySorted.map(country =>
-                <p key={country.name}>
-                    <p><h2><b>{country.name}</b></h2></p>
-                    <p>Capital: {country.capital}</p>
-                    <p>Population: {country.population}</p>
-                    <img src={country.flag} alt="flags" width="300" height="200"></img>
-                </p>)}
-        </div>
+    if (countryCopySorted.length < 10 && countryCopySorted.length >= 2 )  {
+        console.log('toimiiko tämä if')
+        return (
+            <div>
+                {countryCopySorted.map(country =>
+                    <div key={country.name}>
+                        <p>{country.name}</p>
+                    </div>)}
+            </div>
 
-    )
+        )
+    } else if (countryCopySorted.length === 1) {
+        return (
+            <div>
+                {countryCopySorted.map(country =>
+                    <div key={country.name}>
+                        <h2>{country.name}</h2>
+                        <p>Capital: {country.capital}</p>
+                        <p>Population: {country.population}</p>
+                        <img src={country.flag} alt="flags" width="300" height="200"></img>
+                    </div>)}
+            </div>
+
+        )
+
+    } else {
+        return (
+            <div>
+                <p>too many matches, please specify another filter</p>
+            </div>
+        )
+    }
+
 }
 export default PrintCountries

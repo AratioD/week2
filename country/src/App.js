@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import PrintCountries from './components/PrintCountries'
-import SearchPhoneBook from './components/SearchPhoneBook'
+import SearchCountries from './components/SearchCountries'
 
 
 class App extends React.Component {
@@ -46,7 +46,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <SearchPhoneBook
+        <SearchCountries
           handleFindSearch={this.handleFindChange}
           compfindValue={this.state.findValue}
         />   
