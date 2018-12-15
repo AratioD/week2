@@ -1,11 +1,11 @@
 import React from 'react'
 
-const SearchCountries = ({handleFindSearch, compFindValue 
+const SearchCountries = ({combHandleFindSearch, compFindValue 
 }) => {
 
     return (
         <label>
-            find countries: <input type="text" value={compFindValue} onChange={handleFindSearch} />
+            find countries: <input type="text" value={compFindValue} onChange={combHandleFindSearch} />
         </label>
     )
 }

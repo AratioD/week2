@@ -3,60 +3,52 @@ import axios from 'axios'
 import PrintCountries from './components/PrintCountries'
 import SearchCountries from './components/SearchCountries'
 
-
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      countries: [
-        // {
-        //   name: 'austria',
-        //   capital: 'Vienna',
-        //   population: '865843',
-        //   id: 1,
-        // },
-        // {
-        //   name: 'USA',
-        //   capital: 'Washington',
-        //   population: '350000000',
-        //   id: 2,
-        // },
-      ],
-      findValue: ''
-
+      countries: [],
+      findValue: '',
+      selectedCountry: ''
     }
-    console.log('constructor')
+  }
+
+  handleFindChange = (event) => {
+    this.setState({ findValue: event.target.value })
+    this.setState({ selectedCountry: "" })
+  }
+
+  handleClickedCountry = (countryName) => {
+    console.log('countryname', countryName)
+    this.setState({ selectedCountry: countryName })
   }
 
   componentDidMount() {
-    console.log('did mount')
     axios
       .get('https://restcountries.eu/rest/v2/all')
       .then(response => {
-        console.log('promise fulfilled')
         this.setState({ countries: response.data })
       })
   }
 
-  handleFindChange = (event) => {
-    console.log(event.target.value)
-    this.setState({ findValue: event.target.value })
-  }
-
   render() {
+    console.log(this.state.selectedCountry.length)
+
     return (
       <div>
         <SearchCountries
-          handleFindSearch={this.handleFindChange}
+          combHandleFindSearch={this.handleFindChange}
           compfindValue={this.state.findValue}
-        />   
-        <PrintCountries
-        combCountries={this.state.countries}
-        combFindValue={this.state.findValue}
         />
-      </div>
+
+        <PrintCountries
+          combCountries={this.state.countries}
+          combFindValue={this.state.findValue}
+          combSelectedCountry={this.state.selectedCountry}
+          combHandleClick={this.handleClickedCountry} />
+      </div >
     )
   }
 }
-
 export default App;
+
